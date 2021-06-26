@@ -1,0 +1,157 @@
+.flex-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    background-color: #f1f1f1;
+  }
+  
+  .first-half {
+    background-color: #ffffff;
+    height: 100%;
+    margin: 2px;
+    padding: 20px;
+    font-size: 30px;
+    width: 25%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .second-half {
+    background-color: #ffffff;
+    height: 100%;
+    width: 75%;
+    margin: 2px;
+    padding: 20px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-item {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    height: 30%;
+    width: 350px;
+  }
+
+  .flex-item-2 {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    height: 75%;
+    width: 100%;
+  }
+
+  img {
+      border-radius: 10%;
+      width: 100%;
+  }
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+background-color: #04AA6D;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+
+button:hover {
+opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+padding: 14px 20px;
+background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .saveupbtn {
+float: left;
+width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+content: "";
+clear: both;
+display: table;
+}
+.error_page {
+  background-color: #04AA6D;
+  text-align: center;
+  padding:1rem;
+}
+  /*auth-nav*/
+  .main-header__nav {
+    height: 100%;
+    width:100%;
+    display: none;
+    align-items: center;
+    justify-content:space-between;
+  }
+  .main-header__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .main-header__item {
+    margin: 0 1rem;
+    padding: 0;
+  }
+  
+  .main-header__item a,
+  .main-header__item button {
+    font: inherit;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .main-header__item a:hover,
+  .main-header__item a:active,
+  .main-header__item a.active {
+    color:  #04AA6D;
+  }
+  

@@ -1,0 +1,116 @@
+.ttt {
+    margin: 1rem auto;
+    width: fit-content;
+    text-align: center;
+} 
+
+.gameTitle {
+    margin: 2rem 0 0;
+    padding: 0;
+} 
+
+.ttt table {
+    padding: 0;
+    border-spacing: 0;
+    margin: 2rem auto 1rem;
+}
+
+.ttt tr {
+    margin: 0;
+    padding: 0;
+}
+
+.ttt td {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.ttt tr:nth-child(1) td {
+    border-bottom: 4px solid black;
+    height: 80px;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+.ttt tr:nth-child(2) td {
+    border-bottom: 4px solid black;
+    height: 80px;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+.ttt td:nth-child(1) {
+    border-right: 4px solid black;
+    height: 80px;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+.ttt td:nth-child(2) {
+    border-right: 4px solid black;
+    height: 80px;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+.ttt button {
+    max-width: 300px;
+    height: auto;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgb(255, 209, 92);/*#FFD15C*/
+    border: 3px solid rgba(255, 209, 92, .5);
+    border-radius: 5px;
+}
+
+.ttt button:hover {
+    background-color: rgba(255, 209, 92, .5);
+}
+
+.winner {
+    background-color: rgb(2, 72, 119);/*#024877*/
+    color: white;
+}
+
+.ttt article {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px grey;
+    margin: 1rem;
+}
+
+.ttt form {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.ttt form input {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.ttt form button {
+    max-width: 300px;
+    height: auto;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgb(255, 209, 92);
+    border: 3px solid rgba(255, 209, 92, .5);
+    border-radius: 5px;
+}
+
+.signUp {
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+}

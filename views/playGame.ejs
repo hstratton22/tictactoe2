@@ -1,0 +1,51 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+
+</head>
+<body>
+    <header>
+        <!--<a href="/">Enter User</a> | <a href="/users">Users</a><-->
+        
+    </header>
+    <body> 
+        <main class="ttt">
+        <h1 class="gameTitle" id="title">Tic Tac Toe</h1>
+        <section >
+            <article>
+                <table id="myTable">
+                    <tr>
+                        <td id="1" value="<%= gameDetails.gameGrid['1'] %>"><%= gameDetails.gameGrid["1"] %></td>
+                        <td id="2" value="<%= gameDetails.gameGrid['2'] %>"><%= gameDetails.gameGrid["2"] %></td>
+                        <td id="3" value="<%= gameDetails.gameGrid['3'] %>"><%= gameDetails.gameGrid["3"] %></td>
+                    </tr>
+                    <tr>
+                        <td id="4" value="<%= gameDetails.gameGrid['4'] %>"><%= gameDetails.gameGrid["4"] %></td>
+                        <td id="5" value="<%= gameDetails.gameGrid['5'] %>"><%= gameDetails.gameGrid["5"] %></td>
+                        <td id="6" value="<%= gameDetails.gameGrid['6'] %>"><%= gameDetails.gameGrid["6"] %></td>
+                    </tr>
+                    <tr>
+                        <td id="7" value="<%= gameDetails.gameGrid['7'] %>"><%= gameDetails.gameGrid["7"] %></td>
+                        <td id="8" value="<%= gameDetails.gameGrid['8'] %>"><%= gameDetails.gameGrid["8"] %></td>
+                        <td id="9" value="<%= gameDetails.gameGrid['9'] %>"><%= gameDetails.gameGrid["9"] %></td>
+                    </tr>
+                </table>
+                <p id="playerNumber"></p>
+                <p id="playerSymbol"></p>
+                <p id="user"><%= user._id %></p>
+                <form hidden id="game" action="/postPlayerMove" method="POST">
+                    <input type ="hidden" id="_id" name="_id" value="<%= gameDetails._id %>">
+                    <input type ="hidden" id="play" name="play" value="<%= gameDetails.play %>">
+                    <input type ="hidden" id="player1Turn" name="player1Turn" value="<%= gameDetails.player1Turn %>">
+                    <input type ="hidden" id="player1" name="player1" value="<%= gameDetails.player1.toString() %>">
+                    <input type ="hidden" id="player2" name="player2" value="<%= gameDetails.player2.toString() %>">
+                    <input type ="hidden" id="gameWinner" name="gameWinner" value="<%= gameDetails.gameWinner %>">
+                    <input type ="hidden" id="gameGrid" name="gameGrid" value="">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                </form>
+            </article>
+                
+        </section>
+    </main>
+
+<script src="/js/ticTacToe.js"></script>
+<%- include('includes/end.ejs') %>

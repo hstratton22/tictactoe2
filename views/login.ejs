@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <header>
+        <!--<a href="/">Enter User</a> | <a href="/users">Users</a><-->
+    </header>
+    <body>
+        <main class="ttt">
+            <section class="signUp">
+                <h2>Login To Play</h2>
+                <% if (errorMessage) { %>
+                    <div class ="user-message user-message--error"><%= errorMessage %></div>
+                <% } %>
+                <form class="" action="/login" method="POST">
+                    
+                    <div class="">
+                        <label for="email">Email</label>
+                        <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="email" name="email" id="email" value="<%= oldInput.email %>">
+                    </div>
+                    <div class="">
+                        <label for="password">Password</label>
+                        <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" type="password" name="password" id="password" class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>">
+                    </div>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="btn-login" type="submit">Login</button>
+                </form>
+            </section>
+        </main>
+  
+    <%- include('includes/end.ejs') %>

@@ -1,0 +1,57 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+
+    </head>
+
+    <body>
+        <header>
+            <!--<a href="/">Enter User</a> | <a href="/users">Users</a><-->
+
+        </header>
+
+        <body>
+            
+                <main class="ttt">
+                    <h1 class="gameTitle" id="title">Tic Tac Toe</h1>
+                    <section class="game">
+                        <article>
+                            <table id="myTable">
+                                <tr>
+                                    <td id="1"></td>
+                                    <td id="2"></td>
+                                    <td id="3"></td>
+                                </tr>
+                                <tr>
+                                    <td id="4"></td>
+                                    <td id="5"></td>
+                                    <td id="6"></td>
+                                </tr>
+                                <tr>
+                                    <td id="7"></td>
+                                    <td id="8"></td>
+                                    <td id="9"></td>
+                                </tr>
+                            </table>
+                            
+                            
+                            <button id="reset">Play Again</button>
+                        </article>
+                    </section>
+
+                <section class="signUp">
+                    <h2>Play against players around the world!</h2>
+                    <p>Sign up to begin the competition!</p>
+                    <form action="/signup" method="POST">
+                        <!--<label>Enter name: <input type="text" name="username" placeholder="name"></label><-->
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                        <button type="submit">Join</button>
+                    </form>
+                    <a href="/signup">Join</a>
+                    <a href="/login">Login</a>
+                    
+                </section>
+               
+            </main>
+            <script src="/js/ticTacToe.js"></script>
+
+            <%- include('includes/end.ejs') %>

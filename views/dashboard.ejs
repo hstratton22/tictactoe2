@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= pageTitle %>
+  </title>
+  <meta name="description" content="tic-tac-toe for CSE341 by JRolph, JStavast, HStratton">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+  <!--<style>
+    .flex-container {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      background-color: #f1f1f1;
+    }
+    
+    .first-half {
+      background-color: #f1f1f1;
+      height: 45%;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .second-half {
+      background-color: #f1f1f1;
+      height: 100%;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flex-item {
+      background-color: #ffffff;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+      height: 30%;
+      width: 350px;
+    }
+
+    .flex-item-2 {
+      background-color: #ffffff;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+      height: 75%;
+      width: 100%;
+    }
+    
+</style><-->
+</head>
+
+<%- include('includes/nav.ejs') %>
+
+  <body>
+    <h1>Hello <%= user.name %></h1>
+    <div class="flex-container">
+      <!--<div class="first-half">
+        
+        <div class="flex-item">
+          John
+        </div>
+        <div class="flex-item">
+          Sarah
+        </div>
+        <div class="flex-item">
+          Joe
+        </div>
+      </div>-->
+      <div class="second-half">
+        <div class="flex-item-2">
+          <h2>Players</h2>
+          <ol>
+            <% players.forEach(player => { %>
+              <% if (player.name != user.name) { %>
+              <li>
+                  <%= player.name %>
+              </li>
+              <form id="game" action="/postGamePlay" method="POST">
+                <input type ="hidden" id="play" name="play" value="false">
+                <input type ="hidden" id="player1Turn" name="player1Turn" value="true">
+                <input type ="hidden" id="player1" name="player1" value="<%= player._id %>">
+                <input type ="hidden" id="player2" name="player2" value="<%= user._id %>">
+                <input type ="hidden" id="player1Country" name="player1Country" value="<%= player.country %>">
+                <input type ="hidden" id="player2Country" name="player2Country" value="<%= user.country %>">
+                <input type ="hidden" id="gameWinner" name="gameWinner" value="">
+                <input type ="hidden" id="gameGrid" name="gameGrid" value="">
+                <input type="submit" value="Invite to Play">
+            </form><br>
+            <% }}); %>
+          </ol>
+        </div>
+        <div class="flex-item-2">
+          <h2>Current Games</h2>
+          <ol>
+            <% for (let i = 0; i < games.length; i++) { %>
+              <% for (let x = 0; x < players.length; x++) { %>
+          
+                <% if ((players[x]._id.toString() === games[i].player1.toString() && games[i].player2.toString() == user._id.toString() && games[i].play1Turn ) ) { %>
+                  <li>
+                  <%= players[x].name %>  (waiting)   
+                  </li>
+                  <br>
+                <% } %>
+          
+                <% if ((players[x]._id.toString() === games[i].player2.toString() && games[i].player1.toString() === user._id.toString() && !games[i].play1Turn)) { %>
+                  <li>
+                    <%= players[x].name %>  (waiting)   
+                  </li><br>
+                  
+                <% } %>
+          
+                <% if ((players[x]._id.toString() === games[i].player1.toString() && games[i].player2.toString() === user._id.toString() && !games[i].play1Turn)) { %>
+                  <li>
+                  <%= players[x].name %>
+                  </li>
+                  <form id="game" action="/playGame" method="POST">
+                    <input type ="hidden" id="gamePlay_id" name="gamePlay_id" value="<%= games[i]._id %>">
+                    <input type ="hidden" id="play" name="play" value="true">
+                    <input type ="hidden" id="player1Turn" name="player1Turn" value="false">
+                    <input type ="hidden" id="player1" name="player1" value="<%= players[x]._id %>">
+                    <input type ="hidden" id="player2" name="player2" value="<%= user._id %>">
+                    <input type ="hidden" id="player1Country" name="player1Country" value="<%= players[x].country %>">
+                    <input type ="hidden" id="player2Country" name="player2Country" value="<%= user.country %>">
+                    <input type ="hidden" id="gameWinner" name="gameWinner" value="">
+                    <input type ="hidden" id="gameGrid" name="gameGrid" value="">
+                    <input type="submit" value="Play">
+                </form>
+                <% } %>
+                <% if ((players[x]._id.toString() === games[i].player2.toString() && games[i].player1.toString() === user._id.toString() && games[i].play1Turn)) { %>
+                  <li>
+                  <%= players[x].name %>
+                  </li>
+                  <form id="game" action="/playGame" method="POST">
+                    <input type ="hidden" id="gamePlay_id" name="gamePlay_id" value="<%= games[i]._id %>">
+                    <input type ="hidden" id="play" name="play" value="true">
+                    <input type ="hidden" id="player1Turn" name="player1Turn" value="true">
+                    <input type ="hidden" id="player1" name="player1" value="<%= user._id %>">
+                    <input type ="hidden" id="player2" name="player2" value="<%= players[x]._id %>">
+                    <input type ="hidden" id="player1Country" name="player1Country" value="<%= user.country %>">
+                    <input type ="hidden" id="player2Country" name="player2Country" value="<%= players[x].country %>">
+                    <input type ="hidden" id="gameWinner" name="gameWinner" value="">
+                    <input type ="hidden" id="gameGrid" name="gameGrid" value="">
+                    <input type="submit" value="Play">
+                </form>
+                <% } %>
+                
+          
+              <% } %>
+            <% } %>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <%- include('includes/end.ejs') %>
